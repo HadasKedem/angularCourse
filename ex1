@@ -1,0 +1,82 @@
+const myself = {name: 'hadas', 
+               age: '22',
+               address: {city : 'jerusalem',
+                        country : 'israel'},
+               family: [{name: 'yinon',
+                       age: 21},{
+                         name : 'itzik',
+                         age:60}],
+                getName() {
+                  return this.name;
+                },
+                setName(num) {
+                  this.name = num;
+                },
+                getFamilyCount(){
+                  return this.family.length
+								},
+                addFamily(person){
+                  this.family.push(person)
+								},
+                printName(){
+                  console.log(this.name)
+                }
+               }
+
+
+function printJ(objM)
+{
+  for (let i in objM )
+    {
+      if(typeof objM[i] === 'object'){
+        console.log(i + `:`  )
+        printJ(objM[i])
+			} 
+			else
+      {
+        console.log( `${i} : ${objM[i]}`)
+      }
+    }
+}
+ 
+printJ(myself)
+
+console.log(myself.getName())
+console.log(myself.getFamilyCount())
+myself.printName()
+
+function CreateMobilePhone(Model, Size, Price,Number)
+{
+  var result = {}
+  result.model = Model
+  result.size = Size
+  result.price = Price
+  result.number = Number
+  
+  result.setNumber = function(num){
+    result.numpber = num
+  }
+  result.getNumber = function(){
+    return result.number
+  }
+  
+  return result
+}
+
+function MobliePhone(Model, Size, Price,Number)
+{
+  this.Model = Model
+  this.size = Size
+  this.price = Price
+  this.number = Number
+  
+  this.setNumber = function (num) {
+    this.number = num
+  }
+  this.getNumber = function (){
+    return this.number
+  }
+}
+
+
+
